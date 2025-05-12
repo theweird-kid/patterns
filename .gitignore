@@ -1,0 +1,13 @@
+# Ignore C++ built executables
+*.exe
+*.out
+*.o
+*.obj
+*.a
+*.so
+*.dll
+*.dylib
+
+main
+program
+another_executable
