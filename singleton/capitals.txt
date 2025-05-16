@@ -1,0 +1,16 @@
+Tokyo
+33200000
+New York
+8419000
+London
+8982000
+Paris
+2148000
+Beijing
+21540000
+Mumbai
+20411000
+Cairo
+20484965
+Sydney
+5312163
