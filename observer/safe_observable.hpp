@@ -1,7 +1,7 @@
 #pragma once
 
-#include <algorithm>
 #include <iostream>
+#include <algorithm>
 #include <string>
 #include <vector>
 #include <mutex>
@@ -26,11 +26,12 @@ public:
         for(auto observer : observers) {
             if(observer)
                 observer->field_changed(source, field_name);
-            else {
+            else {              // Delete if nullptr
                 observers.erase(
                     std::remove(observers.begin(), observers.end(), &observer),
                     observers.end()
                 );
+                std::cout << "observer " << &observer << " unsubscribed\n";
             }
         }
     }
@@ -55,6 +56,5 @@ public:
         //     observers.end()
         // );
 
-        // std::cout << "observer " << &observer << " unsubscribed\n";
     }
 };
