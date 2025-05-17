@@ -30,7 +30,7 @@ public:
     SingletonDatabase& operator=(SingletonDatabase const&) = delete;
 
     static SingletonDatabase& getInstance() {
-        // Meyer's Singleton : Guaranted to be thread safe from C++11.
+        // Meyer's Singleton : Guaranted to be thread safe from C++11 Standard.
         static SingletonDatabase db;
         return db;
     }
@@ -83,6 +83,8 @@ struct ConfigurableRecordFinder
 };
 
 
-int main() {
-
+int main()
+{
+    std::cout << SingletonDatabase::getInstance().get_population("Tokyo") << "\n";
+    return 0;
 }
