@@ -2,9 +2,10 @@
 #include <iostream>
 #include "observer.hpp"
 #include "observable.hpp"
+#include "safe_observable.hpp"
 
 // Using CRTP
-class Person : public Observable<Person>       // Observable
+class Person : public ThreadSafeObservable<Person>       // Observable
 {
     int age_;
 public:
@@ -46,7 +47,7 @@ private:
 };
 
 /*
-                                                OBSERVER PATTERN with BOOST/SIGNALS2
+--------------------------------------------------- OBSERVER PATTERN with BOOST/SIGNALS2 ----------------------------------------------------
 */
 #include <boost/signals2.hpp>
 template <typename T> struct Observable2
@@ -67,6 +68,16 @@ public:
 
     int get_age() const {
         return age_;
+    }
+};
+
+// --------------------------------------------------------------------------------------------------------------------------------------- //
+
+struct TrafficAdministration : Observer<Person>
+{
+    void field_changed(Person &source, const std::string &field_name) override
+    {
+        //if(source.get_age() < )
     }
 };
 
